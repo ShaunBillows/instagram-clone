@@ -60,3 +60,24 @@ export const login = async (username, password, setUser) => {
         console.log(err);
     }
 }
+
+export const readUsers = async (username, setUserDisplay) => {
+    try {
+        const response = await fetch("http://localhost:5001/user/find", {
+        method: "POST", 
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({
+            "username": username,
+        })
+    })
+    const data = await response.json()
+    console.log(response.status);
+    console.log(data.allUsers);
+    setUserDisplay(data.allUsers)
+    if (data.username) {
+        return response.status
+    }
+    } catch(err) {
+        console.log(err);
+    }
+}

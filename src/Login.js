@@ -157,7 +157,7 @@ const Login = ({ setUser, user }) => {
                         <h2>{user} logged in.</h2>
                     </InputCont>
                     <InputCont>
-                        <Link onClick={() => setUser("")}>Home</Link>
+                        <Link href="/" >Home</Link>
                     </InputCont>
                 </SucessCont>
             }
