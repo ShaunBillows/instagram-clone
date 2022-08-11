@@ -20,6 +20,12 @@ const SearchUser = ({}) => {
         }
     }
 
+    const handleOnChange = async e => {
+        setInput(e.target.value)
+        getUsers()
+
+    }
+
     // search for users
 
     const getUsers = async () => {
@@ -29,21 +35,21 @@ const SearchUser = ({}) => {
 
     return (
         <>
-        <SearchUserContainer>
-            <SearchCont>
-                <Input type="text" placeholder="find friends..." onChange={(e) => setInput(e.target.value)} value={input}></Input>
-                <SearchButton onClick={getUsers} onClick={handleClick} onKeyDown={handleKeyDown}>Submit</SearchButton>
-            </SearchCont>
-            <CardCont>
+            <SearchUserContainer>
+                
+                <SearchCont>
+                    <Input type="text" placeholder="find friends..." onChange={handleOnChange} value={input}></Input>
+                    <SearchButton onClick={handleClick} onKeyDown={handleKeyDown}>Submit</SearchButton>
+                </SearchCont>
+                <CardCont>
 
-                {userDisplay.map((item, i) => (
-                    <h3 key={i}>{item}</h3>
-                    ))}
+                    {userDisplay.map((item, i) => (
+                        <h3 key={i}>{item}</h3>
+                        ))}
 
-            </CardCont>
-        </SearchUserContainer>
+                </CardCont>
+            </SearchUserContainer>
         </>
-
     )
 }
 

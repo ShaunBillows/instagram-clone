@@ -2,9 +2,11 @@ import styled from "styled-components"
 import { useState, useEffect } from "react"
 import Modal from "react-modal"
 import { createUser, login } from "./utils"
+import { Navigate } from "react-router-dom";
+// import {useNavigate} from 'react-router-dom'
 Modal.setAppElement('#root');
 
-const Login = ({ setUser, user }) => {
+const Login = ({ setUser, user, setCookie }) => {
 
     const [ username, setUsername ] = useState("")
     const [ password, setPassword ] = useState("")
@@ -30,11 +32,11 @@ const Login = ({ setUser, user }) => {
         console.log(err)
     }
   
-    function openModal() {
+    const openModal = () => {
       setIsOpen(true);
     }
   
-    function closeModal(e) {
+    const closeModal = (e) => {
         e.preventDefault()
         setIsOpen(false);
     }
@@ -42,42 +44,54 @@ const Login = ({ setUser, user }) => {
     // create account funcs
 
 
-    const handleKeyDown = async event => {
+    const handleEnterCreate = async event => {
         if (event.key === "Enter") {
-            const status = await createUser(username, email, password, setUser)
+            const status = await createUser(username, email, password, setUser, setCookie)
             if (status != 200) {
                 setErrMsg("Incorrect credentials.")
                 openModal()
             }
+        setEmail("")
+        setPassword("")
+        setUsername("")
         }
       };
     
-    const handleClickSearch = async () => {
-        const status = await createUser(username, email, password, setUser)
+    const handleClickCreate = async () => {
+        const status = await createUser(username, email, password, setUser, setCookie)
         if (status != 200) {
             setErrMsg("Incorrect credentials.")
             openModal()
         }
+        setEmail("")
+        setPassword("")
+        setUsername("")
     }
 
     // login funcs
 
     const handleEnterLogin = async event => {
         if (event.key === "Enter") {
-            const status = await login(username, password, setUser)
+            const status = await login(username, password, setUser, setCookie)
             if (status != 200) {
                 setErrMsg("Incorrect credentials.")
                 openModal()
             }
+            setEmail("")
+            setPassword("")
+            setUsername("")
         }
       };
     
     const handleClickLogin = async () => {
-        const status = await login(username, password, setUser)
+        const status = await login(username, password, setUser, setCookie)
         if (status != 200) {
             setErrMsg("Incorrect credentials.")
             openModal()
         }
+        setEmail("")
+        setPassword("")
+        setUsername("")
     }
 
     return (
@@ -108,16 +122,16 @@ const Login = ({ setUser, user }) => {
                             <Title>Create Account</Title>
                         </InputCont>
                         <InputCont>
-                            <Input type="text" value={username} onKeyDown={handleKeyDown} onChange={(event) => setUsername(event.target.value)} placeholder="username"></Input>
+                            <Input type="text" value={username} onKeyDown={handleEnterCreate} onChange={(event) => setUsername(event.target.value)} placeholder="username"></Input>
                         </InputCont>
                         <InputCont>
-                            <Input type="text" value={password} onKeyDown={handleKeyDown} onChange={(event) => setPassword(event.target.value)} placeholder="password"></Input>
+                            <Input type="text" value={password} onKeyDown={handleEnterCreate} onChange={(event) => setPassword(event.target.value)} placeholder="password"></Input>
                         </InputCont>
                         <InputCont>
-                            <Input type="text" value={email} onKeyDown={handleKeyDown} onChange={(event) => setEmail(event.target.value)} placeholder="email"></Input>
+                            <Input type="text" value={email} onKeyDown={handleEnterCreate} onChange={(event) => setEmail(event.target.value)} placeholder="email"></Input>
                         </InputCont>
                         <InputCont>
-                            <Button onClick={handleClickSearch}>Create Account</Button>
+                            <Button onClick={handleClickCreate}>Create Account</Button>
                         </InputCont>                        
                         </>
                         :
@@ -151,13 +165,16 @@ const Login = ({ setUser, user }) => {
                     }
                 </>
                 :
-                <SucessCont>
+                <SucessCont
+                // onKeyDown={ e => e.key === "Enter" && Navigate("/home") }
+
+                >
                     <InputCont>
-                        <h2>Success.</h2>
+                        <h2 >Success.</h2>
                         <h2>{user} logged in.</h2>
                     </InputCont>
                     <InputCont>
-                        <Link href="/" >Home</Link>
+                        <Link href="/home" >Home</Link>
                     </InputCont>
                 </SucessCont>
             }
@@ -197,7 +214,6 @@ const LoginForm = styled.div`
     width: 400px;
     background-color: ${props => props.user ? "green": "red"};
     margin-top: 4rem;
-    
 `
 
 // Login
@@ -247,7 +263,7 @@ const ErrorMessage = styled.h2`
     padding: 2rem;
 `
 
-// Success
+// Success modal
 const SucessCont = styled.div`
     text-align: center;
     padding: 1rem;
