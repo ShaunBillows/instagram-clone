@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { useState, useEffect } from "react"
 import Modal from "react-modal"
-import { createUser, login } from "./utils"
+import { createUser, login } from "../utils"
 import { Navigate } from "react-router-dom";
 // import {useNavigate} from 'react-router-dom'
 Modal.setAppElement('#root');

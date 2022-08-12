@@ -75,7 +75,6 @@ function changeToken(setCookie, token) {
     console.log('token changed to: ' + token);
   }
 
-
 export const readUsers = async (username, setUserDisplay) => {
     try {
         const response = await fetch("http://localhost:5001/user/find", {
@@ -108,14 +107,14 @@ export const checkToken = async (cookies, setCookie, setUser) => {
     console.log(data.username);
     if (response.status === 200) {
         setUser(data.username)
-        changeToken(setCookie, data.token)
+        // changeToken(setCookie, data.token)
         return 1
     } else {
         throw new Error("Invalid credentials.")
     }
     } catch(err) {
         console.log(err);
-        setUser("")
+        // setUser("")
         return 0
     }
 }

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import Header from './Header'
-import Login from "./Login"
-import SignUpOrLogin from './components/SignUpOrLogin';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import Login from "./pages/Login"
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import {Navigate} from "react-router-dom"
-import Home from "./Home"
+import Home from "./pages/Home"
 import { useCookies } from 'react-cookie'
-
+import Settings from './pages/Settings';
+// import Profile from './pages/Profile';
 
 function App() {
   const [ user, setUser ] = useState();
@@ -27,15 +27,20 @@ function App() {
   
   return (
     <>
-    <Router>
+    <BrowserRouter>
       <div className="App">
         <Routes>
             <Route path="/" element={<Login setCookie={setCookie} user={user} setUser={setUser} />}>
             </Route>
-            <Route path="/home" element={<Home user={user} setCookie={setCookie} cookies={cookies} setUser={setUser} />}></Route>
+            <Route path="/home" element={<Home user={user} setCookie={setCookie} cookies={cookies} setUser={setUser} />}>
+            </Route>
+            <Route path="/profile" element={<Home user={user} setCookie={setCookie} cookies={cookies} setUser={setUser} />}>
+            </Route>
+            <Route path="/settings" element={<Settings user={user} setCookie={setCookie} cookies={cookies} setUser={setUser} />}>
+            </Route>
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
 
 
     {/* //cookie test

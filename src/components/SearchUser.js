@@ -1,10 +1,10 @@
 import styled from "styled-components"
-import { readUsers } from "./utils"
+import { readUsers } from "../utils"
 import { useState } from "react"
+import DisplayUser from "./DisplayUser"
 
-const SearchUser = ({}) => {
+const SearchUser = ({userDisplay, setUserDisplay}) => {
 
-    const [ userDisplay, setUserDisplay ] = useState([])
     const [ input, setInput ] = useState("")
 
     // input funcs
@@ -41,20 +41,22 @@ const SearchUser = ({}) => {
                     <Input type="text" placeholder="find friends..." onChange={handleOnChange} value={input}></Input>
                     <SearchButton onClick={handleClick} onKeyDown={handleKeyDown}>Submit</SearchButton>
                 </SearchCont>
-                <CardCont>
+
+                {/* <CardCont>
 
                     {userDisplay.map((item, i) => (
                         <h3 key={i}>{item}</h3>
                         ))}
 
-                </CardCont>
+                </CardCont> */}
             </SearchUserContainer>
         </>
     )
 }
 
 const SearchUserContainer = styled.div`
-padding: 1rem;
+/* padding: 1rem; */
+
 `
 const SearchCont = styled.div`
 padding: 1rem;
@@ -62,8 +64,7 @@ padding: 1rem;
 const Input = styled.input`
 `
 const SearchButton = styled.button`
-`
-const CardCont = styled.div`
+
 `
 
 export default SearchUser
