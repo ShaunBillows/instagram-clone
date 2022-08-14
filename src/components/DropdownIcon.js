@@ -46,6 +46,6 @@ const DropdownArrow = styled.div`
     top: 45px;
     left: 350px;
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    width: 27px;
+    height: 27px;
 `

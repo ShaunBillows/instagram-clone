@@ -1,17 +1,52 @@
 import styled from "styled-components"
+import DisplayUserItem from "./DisplayUserItem"
 
-const DisplayUser = ({userDisplay}) => {
+const DisplayUser = ({ userDisplay, input, setInput, fakeDisplay, images }) => {
+
+
     return (
-        <CardCont>
-            {userDisplay.map((item, i) => (
-                <h3 key={i}>{item}</h3>
-                ))}
-        </CardCont>
+        <Body>
+            <TextCont><h4>Suggestions for you </h4></TextCont>
+            {
+                input
+                ?
+                <UserCont>
+                    <UserList>
+                        {userDisplay.map((user, i) => (
+                            <DisplayUserItem key={i} user={user} firstName={"faker"} lastName={"name"} status={"fake info"} image={images[i]}/>
+                        ))}
+                    </UserList>
+                </UserCont>  
+                :
+                <UserCont>
+                    {/* <UserList>
+                        {fakeDisplay.map((user, i) => (
+                            <DisplayUser key={i} user={user}/>
+                            ))}
+                    </UserList> */}
+                </UserCont>  
+            }
+        </Body>
     )
 }
 
 export default DisplayUser
 
-const CardCont = styled.div`
-margin-top: 2rem;
+const width = "350px"
+
+const Body = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+const TextCont = styled.div`
+    margin: 1rem 0;
+    width: ${width};
+`
+const UserCont = styled.div`
+        width: ${width};
+        box-shadow: 0px 0px 7px -2px;
+`
+const UserList = styled.ul`
+margin-top: 1rem;
 `

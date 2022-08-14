@@ -10,7 +10,7 @@ import 'react-dropdown/style.css';
 import NavbarIcon from "./NavbarIcon";
 import logo from "./images/logo.png"
 
-const Header = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay }) => {
+const Header = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay, input, setInput }) => {
 
     // check token on refresh
 
@@ -38,13 +38,12 @@ const Header = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay
     return (
         <>
             <NavBar>
-
                 <NavTitleCont>
                     <Img src={logo}/>
                 </NavTitleCont>
 
                 <NavSearchCont>
-                    <SearchUser user={user} setUserDisplay={setUserDisplay} userDisplay={userDisplay}/>      
+                    <SearchUser user={user} setUserDisplay={setUserDisplay} userDisplay={userDisplay} input={input} setInput={setInput}/>      
                 </NavSearchCont>
 
                 <NavAllIconsCont>
@@ -57,7 +56,7 @@ const Header = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay
                 </NavAllIconsCont> 
 
             </NavBar>
-            {user} logged in.        
+            {user} logged in.       
         </>
     )
 };
@@ -73,13 +72,15 @@ const NavTitleCont = styled.div`
     position: absolute;
     left: 0;
     top: 0;
-    /* width: 100px;
-    height: 100px; */
+    height: 100%;
+    display: flex;
+    align-items: center;
 `
 const Img = styled.img`
-    height: 36px;
+    height: 40px;
     background-image: url(${logo});
     background-size: cover;
+    margin-left: 1rem;
 
 `
 const NavSearchCont = styled.div`
@@ -95,6 +96,7 @@ const NavAllIconsCont = styled.div`
     display: flex;
     align-items: center;
     gap: 1.4rem;
+    margin-right: 1rem;
 `
 const NavIconCont = styled.div`
     height: 30px;

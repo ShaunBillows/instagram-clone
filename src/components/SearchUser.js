@@ -1,11 +1,10 @@
 import styled from "styled-components"
 import { readUsers } from "../utils"
 import { useState } from "react"
-import DisplayUser from "./DisplayUser"
+import DisplayUser from "./DisplayUser" 
+import searchLogo from "./images/searchLogo.png"
 
-const SearchUser = ({userDisplay, setUserDisplay}) => {
-
-    const [ input, setInput ] = useState("")
+const SearchUser = ({userDisplay, setUserDisplay, input, setInput}) => {
 
     // input funcs
 
@@ -38,17 +37,13 @@ const SearchUser = ({userDisplay, setUserDisplay}) => {
             <SearchUserContainer>
                 
                 <SearchCont>
-                    <Input type="text" placeholder="find friends..." onChange={handleOnChange} value={input}></Input>
-                    <SearchButton onClick={handleClick} onKeyDown={handleKeyDown}>Submit</SearchButton>
+                    <Input type="text" placeholder="Search" onChange={handleOnChange} value={input}></Input>
+
+                    <SearchIcon ></SearchIcon>
+                    <Clear onClick={handleClick} onChange={handleKeyDown}>X</Clear>
+
                 </SearchCont>
-
-                {/* <CardCont>
-
-                    {userDisplay.map((item, i) => (
-                        <h3 key={i}>{item}</h3>
-                        ))}
-
-                </CardCont> */}
+        
             </SearchUserContainer>
         </>
     )
@@ -59,12 +54,54 @@ const SearchUserContainer = styled.div`
 
 `
 const SearchCont = styled.div`
-padding: 1rem;
+    margin: 1.2rem;
+    position: relative;
+    width: 280px;
+    height: 30px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 `
 const Input = styled.input`
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    padding: 8px 10px 8px 30px;
+    position: absolute;
+    /* top: 0;
+    left: 0;
+    z-index: 5; */
+    font-size: medium;
+    background-color: rgba(1,1,1,0.1);
 `
-const SearchButton = styled.button`
-
+const SearchIcon = styled.div`
+    position: absolute;
+    top: 6px;
+    left: 5px;
+    height: 20px;
+    width: 20px;
+    z-index: 10;
+    border-radius: 10px;
+    border: none;
+    background-image: url(${searchLogo});
+    background-size: cover;
+    cursor: text;
+`
+const Clear = styled.div`
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    height: 20px;
+    width: 20px;
+    z-index: 10;
+    border-radius: 10px;
+    border: none;
+    /* background-image: url(${searchLogo}); */
+    background-size: cover;
+    cursor: pointer;
+    font-weight: bold;
+    color: rgba(1,1,1,0.3);
+    font-size: larger;
 `
 
 export default SearchUser

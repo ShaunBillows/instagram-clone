@@ -1,4 +1,4 @@
-
+import { changeToken } from "./helpers";
 
 export const signUp = async (username, email, password, setUser) => {
     try {
@@ -68,12 +68,6 @@ export const login = async (username, password, setUser, setCookie) => {
         console.log(err);
     }
 }
-function changeToken(setCookie, token) {
-    setCookie("token", token, {
-      path: "/"
-    });
-    console.log('token changed to: ' + token);
-  }
 
 export const readUsers = async (username, setUserDisplay) => {
     try {
@@ -119,12 +113,6 @@ export const checkToken = async (cookies, setCookie, setUser) => {
     }
 }
 
-export const logout = (setCookie, setUser) => {
-    changeToken(setCookie, "")
-    setUser("")
-}
-
-
 export const deleteUser = async (cookies, username, password, setCookie, setUser) => {
     console.log(cookies.token);
     try {
@@ -154,3 +142,10 @@ export const deleteUser = async (cookies, username, password, setCookie, setUser
         return 0
     }
 }
+
+export const logout = (setCookie, setUser) => {
+    changeToken(setCookie, "")
+    setUser("")
+}
+
+// const UpdatePassword

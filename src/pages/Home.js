@@ -7,8 +7,8 @@ import DisplayUser from "../components/DisplayUser"
 
 const Home = ({ user, setUser, cookies, setCookie }) => {
 
-    const [ pics, setPics ] = useState()
-
+    const [ images, setImages ] = useState()
+    const [ input, setInput ] = useState("")
     // check token
     const navigate = useNavigate();
     
@@ -24,25 +24,34 @@ const Home = ({ user, setUser, cookies, setCookie }) => {
   
     // pics 
 
-    const getPics = async () => {
+    const getImages = async () => {
       const response = await fetch("https://picsum.photos/v2/list")
       const data = await response.json()
-      setPics( data )
+      setImages( data.map( x => x.download_url) )
     }
   
-    // useEffect( () => {
-    //   getPics()
-    // }, [] )
+    useEffect( () => {
+      getImages()
+    }, [] )
 
     // user display info for SearchUser and DisplayUser
     const [ userDisplay, setUserDisplay ] = useState([])
 
+    // user display info for SearchUser and DisplayUser
+    const [ fakeDisplay, setFakeDisplay ] = useState([])
+
+    
+    useEffect( () => {
+
+    }, [])
+
     return (
         <>
+        {/* <h4>{`${imagesz}`}</h4> */}
           {/* <button onClick={() => logout( setCookie, setUser )}>logout</button>
           <button onClick={() => console.log(cookies)}>redir</button> */}
-            <Header user={user} setUser={setUser} cookies={cookies} setCookie={setCookie} userDisplay={userDisplay} setUserDisplay={setUserDisplay} navigate={navigate}/>
-            <DisplayUser userDisplay={userDisplay}/>
+            <Header user={user} setUser={setUser} cookies={cookies} setCookie={setCookie} userDisplay={userDisplay} setUserDisplay={setUserDisplay} navigate={navigate}  input={input} setInput={setInput}/>
+            <DisplayUser userDisplay={userDisplay} input={input} setInput={setInput} fakeDisplay={fakeDisplay} images={images}/>
     
         </>
     )

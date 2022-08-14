@@ -7,6 +7,7 @@ import {Navigate} from "react-router-dom"
 import Home from "./pages/Home"
 import { useCookies } from 'react-cookie'
 import Settings from './pages/Settings';
+import Profile from "./pages/Profile"
 // import Profile from './pages/Profile';
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
             </Route>
             <Route path="/home" element={<Home user={user} setCookie={setCookie} cookies={cookies} setUser={setUser} />}>
             </Route>
-            <Route path="/profile" element={<Home user={user} setCookie={setCookie} cookies={cookies} setUser={setUser} />}>
+            <Route path="/profile" element={<Profile user={user} setCookie={setCookie} cookies={cookies} setUser={setUser} />}>
             </Route>
             <Route path="/settings" element={<Settings user={user} setCookie={setCookie} cookies={cookies} setUser={setUser} />}>
             </Route>

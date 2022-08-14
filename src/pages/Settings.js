@@ -1,14 +1,12 @@
-import header from "../components/Header"
-import { Navigate } from "react-router-dom"
+import Header from "../components/Header"
 import DeleteAccount from "../components/DeleteAccount"
 
-const Settings = ({user, setUser, cookies, setCookieuserDisplay, setUserDisplay, username, password, setCookie}) => {
+const Settings = ({user, setUser, cookies, setCookie, userDisplay, setUserDisplay}) => {
     return (
         <>
-            {/* <Header user={user} setUser={setUser} cookies={cookies} setCookie={setCookie} userDisplay={userDisplay} setUserDisplay={setUserDisplay}/>
-            <h1>{user} logged in.</h1> */}
+            <Header user={user} setUser={setUser} cookies={cookies} setCookie={setCookie} userDisplay={userDisplay} setUserDisplay={setUserDisplay}/>
 
-            <DeleteAccount cookies={cookies} username={username} password={password} setCookie={setCookie} setUser={setUser}/>
+            <DeleteAccount cookies={cookies} setCookie={setCookie} setUser={setUser}/>
             
         </>
     )

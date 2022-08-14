@@ -1,13 +1,3 @@
-  /* .user-id {
-    height: 100%;
-    width: 100%;
-    background: #fff;
-    position: relative;
-    cursor: pointer;
-    background-image: url("./images/profile.png"); 
-    background-size: cover;
-  } */
-
   .user-id:hover .dropdown-arrow {
     top: 35px;
       border-left: 10px solid transparent;
