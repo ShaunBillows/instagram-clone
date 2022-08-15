@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Modal from "react-modal"
 import { createUser, login } from "../utils"
 import LoginForm from "../components/LoginForm"
@@ -15,7 +15,6 @@ const Login = ({ setUser, user, setCookie }) => {
     const [ email, setEmail ] = useState("")
     const [ errMsg, setErrMsg ] = useState("")
     const [ createAccount, setCreateAccount ] = useState(false)
-    const [ test, setTest ] = useState("")
     const [modalIsOpen, setIsOpen] = useState(false);
 
     // switch login/create account funcs
@@ -87,7 +86,6 @@ const Login = ({ setUser, user, setCookie }) => {
 
     return (
         <LoginFormCont>
-        {/* <LoginForm_ user={user}> */}
             {
                 !user
                 &&
@@ -127,20 +125,16 @@ const Login = ({ setUser, user, setCookie }) => {
             user={user}
             />
         }
-
         <LoginIncorrectModal
             openModal={openModal}
             setIsOpen={setIsOpen}
             modalIsOpen={modalIsOpen}
         />
-
         </LoginFormCont> 
     )
 }
 
 export default Login
-
-// styles
 
 const LoginFormCont = styled.div`
     height: 90vh;
@@ -148,16 +142,3 @@ const LoginFormCont = styled.div`
     align-items: center;
     justify-content: center;
 `
-
-// const successColor = "green"
-
-// const LoginForm_ = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     /* width: 320px; */
-//     background-color: ${props => props.user ? successColor: "white"};
-//     margin-top: 4rem;
-//     box-shadow: 0px 0px 7px -2px;
-// `

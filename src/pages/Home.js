@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import DisplayUser from "../components/DisplayUser"
 import styled from "styled-components"
 import NavBar from "../components/NavBar"
@@ -19,25 +19,25 @@ const Home = ({ user, setUser, cookies, setCookie }) => {
     }, [] )
 
     return (
-        <Container>
-            <NavBar 
-              user={user} 
-              setUser={setUser} 
-              cookies={cookies} 
-              setCookie={setCookie} 
-              userDisplay={userDisplay} 
-              setUserDisplay={setUserDisplay} 
-              navigate={navigate}  
-              input={input} 
-              setInput={setInput}
-            />
-            <DisplayUser 
-              userDisplay={userDisplay} 
-              input={input} 
-              setInput={setInput} 
-              images={images}
-            />
-        </Container>
+      <Container>
+          <NavBar 
+            user={user} 
+            setUser={setUser} 
+            cookies={cookies} 
+            setCookie={setCookie} 
+            userDisplay={userDisplay} 
+            setUserDisplay={setUserDisplay} 
+            navigate={navigate}  
+            input={input} 
+            setInput={setInput}
+          />
+          <DisplayUser 
+            userDisplay={userDisplay} 
+            input={input} 
+            setInput={setInput} 
+            images={images}
+          />
+      </Container>
     )
 }
 

@@ -30,7 +30,7 @@ const NavBar = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay
         <>
             <Container>
                 <NavTitleCont>
-                    <Img src={logo} onClick={ () => navigate("/") }/>
+                    <Img src={logo} onClick={ () => navigate("/home") }/>
                 </NavTitleCont>
                 <NavSearchCont>
                     <SearchUser user={user} setUserDisplay={setUserDisplay} userDisplay={userDisplay} input={input} setInput={setInput}/>      
