@@ -26,6 +26,7 @@
     width: 200px;
     line-height: 2.5em;
     color: black;
+    padding: 0 0.5rem;
   }
   
   .dropdown-menu ul li:last-child {

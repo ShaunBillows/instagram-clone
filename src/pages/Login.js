@@ -119,7 +119,6 @@ const Login = ({ setUser, user, setCookie }) => {
                     }
                 </>
             }
-        {/* </LoginForm_> */}
 
         {
             user

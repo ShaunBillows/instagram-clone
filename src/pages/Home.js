@@ -4,10 +4,11 @@ import { useState, useEffect } from "react"
 import { checkToken, logout } from "../utils"
 import {useNavigate} from 'react-router-dom'
 import DisplayUser from "../components/DisplayUser"
+import styled from "styled-components"
 
 const Home = ({ user, setUser, cookies, setCookie }) => {
 
-    const [ images, setImages ] = useState()
+    const [ images, setImages ] = useState([])
     const [ input, setInput ] = useState("")
     // check token
     const navigate = useNavigate();
@@ -46,15 +47,17 @@ const Home = ({ user, setUser, cookies, setCookie }) => {
     }, [])
 
     return (
-        <>
-        {/* <h4>{`${imagesz}`}</h4> */}
-          {/* <button onClick={() => logout( setCookie, setUser )}>logout</button>
-          <button onClick={() => console.log(cookies)}>redir</button> */}
+        <Container>
             <Header user={user} setUser={setUser} cookies={cookies} setCookie={setCookie} userDisplay={userDisplay} setUserDisplay={setUserDisplay} navigate={navigate}  input={input} setInput={setInput}/>
             <DisplayUser userDisplay={userDisplay} input={input} setInput={setInput} fakeDisplay={fakeDisplay} images={images}/>
-    
-        </>
+        </Container>
     )
 }
 
 export default Home
+
+const Container = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+`

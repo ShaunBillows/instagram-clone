@@ -2,7 +2,6 @@ import { deleteUser } from "../utils"
 import { useState } from "react"
 import styled from "styled-components"
 
-
 const DeleteAccount = ({ cookies, setCookie, setUser }) => {
 
     // delete account 
@@ -12,7 +11,6 @@ const DeleteAccount = ({ cookies, setCookie, setUser }) => {
 
     const handleEnterDelete = async e => {
         if (e.key === "Enter") {
-            // await deleteUser(cookies, username, password, setCookie, setUser)
             const result = await deleteUser(cookies, username, password, setCookie, setUser)
             if (result) {
                 alert("Account sucessfully deleted.")
@@ -43,6 +41,8 @@ const DeleteAccount = ({ cookies, setCookie, setUser }) => {
     )
 }
 
+export default DeleteAccount
+
 const DeleteAccountCont = styled.div`
     padding: 1rem;
     outline: solid black 1px;
@@ -51,5 +51,3 @@ const Input = styled.input`
 `
 const Button = styled.button`
 `
-
-export default DeleteAccount

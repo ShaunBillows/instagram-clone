@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { checkToken } from "../utils";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import { deleteUser } from "../utils";
-import Dropdown from 'react-dropdown';
 import SearchUser from "./SearchUser";
 import DropdownIcon from "../components/DropdownIcon"
 import 'react-dropdown/style.css';
@@ -56,7 +54,9 @@ const Header = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay
                 </NavAllIconsCont> 
 
             </NavBar>
-            {user} logged in.       
+
+            <User>{user} logged in.</User>   
+
         </>
     )
 };
@@ -98,7 +98,7 @@ const NavAllIconsCont = styled.div`
     gap: 1.4rem;
     margin-right: 1rem;
 `
-const NavIconCont = styled.div`
-    height: 30px;
-    width: 30px;
+const User = styled.h5`
+    padding: 0.3rem;
+    align-self: flex-end;
 `

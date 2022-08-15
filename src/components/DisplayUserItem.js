@@ -1,6 +1,14 @@
+import { useState } from "react"
 import styled from "styled-components"
 import "./DisplayUserItem"
+
 const DisplayUserItem = ({ user, firstName, lastName, status, image }) => {
+
+    const [ isFriend, setIsFriend ] = useState(false)
+
+    const handleClick = () => {
+        setIsFriend( status => !status )
+    }
 
     return (
 
@@ -17,7 +25,7 @@ const DisplayUserItem = ({ user, firstName, lastName, status, image }) => {
                 </InfoCont>
             </UserCont>
             <ButtonCont>
-                <Button class="button-22" role="button">Follow</Button>
+                <Button onClick={handleClick} isFriend={isFriend} >{isFriend ? "Unfollow" : "Follow"}</Button>
             </ButtonCont>
 
 
@@ -65,8 +73,7 @@ margin-right: 0.6rem;
 `
 const Button = styled.button`
   align-items: center;
-  appearance: button;
-  background-color: #0276FF;
+  background-color: ${ props => props.isFriend ? "rgba(50.2,50.2,50.2,0.48)" : "#0276FF"};
   border-radius: 8px;
   border-style: none;
   box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
@@ -80,8 +87,10 @@ const Button = styled.button`
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
-  padding: 0.5rem 1.5rem ;
-  text-align: center;
+  width: 95px;
+  height: 33px;
+  display: flex;
+  justify-content: center;
   text-transform: none;
   transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
   user-select: none;
@@ -89,9 +98,9 @@ const Button = styled.button`
   touch-action: manipulation;
   font-weight: bolder;
   &:hover {
-    background-color: #1C84FF;
+    background-color: ${ props => props.isFriend ? "rgba(50.2,50.2,50.2,0.42)" : "#1C84FF"};
     }
     &:active{
-    background-color: #006AE8;
+    background-color: ${ props => props.isFriend ? "rgba(50.2,50.2,50.2,0.42)" : "#006AE8"};;
     }
 `

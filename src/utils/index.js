@@ -147,5 +147,3 @@ export const logout = (setCookie, setUser) => {
     changeToken(setCookie, "")
     setUser("")
 }
-
-// const UpdatePassword

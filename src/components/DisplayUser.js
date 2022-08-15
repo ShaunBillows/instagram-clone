@@ -1,32 +1,32 @@
 import styled from "styled-components"
 import DisplayUserItem from "./DisplayUserItem"
+let faker = require('faker');
 
-const DisplayUser = ({ userDisplay, input, setInput, fakeDisplay, images }) => {
-
+const DisplayUser = ({ userDisplay, input, images }) => {
 
     return (
-        <Body>
-            <TextCont><h4>Suggestions for you </h4></TextCont>
+        <>
+            <TextCont><h4>Suggestions for you</h4></TextCont>
             {
                 input
                 ?
                 <UserCont>
                     <UserList>
                         {userDisplay.map((user, i) => (
-                            <DisplayUserItem key={i} user={user} firstName={"faker"} lastName={"name"} status={"fake info"} image={images[i]}/>
+                            <DisplayUserItem key={i} user={user} firstName={faker.name.firstName()} lastName={faker.name.lastName()} status={faker.name.jobType()} image={images[i]}/>
                         ))}
                     </UserList>
                 </UserCont>  
                 :
                 <UserCont>
-                    {/* <UserList>
-                        {fakeDisplay.map((user, i) => (
-                            <DisplayUser key={i} user={user}/>
-                            ))}
-                    </UserList> */}
+                    <UserList>
+                        {images.map((x, i) => (
+                            <DisplayUserItem key={i} user={faker.name.firstName()} firstName={faker.name.firstName()} lastName={faker.name.lastName()} status={faker.name.jobType()} image={images[i]}/>
+                        ))}
+                    </UserList>
                 </UserCont>  
             }
-        </Body>
+        </>
     )
 }
 
@@ -34,11 +34,6 @@ export default DisplayUser
 
 const width = "350px"
 
-const Body = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
 const TextCont = styled.div`
     margin: 1rem 0;
     width: ${width};

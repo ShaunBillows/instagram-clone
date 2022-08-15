@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import Header from './components/Header'
 import Login from "./pages/Login"
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import {Navigate} from "react-router-dom"
 import Home from "./pages/Home"
 import { useCookies } from 'react-cookie'
 import Settings from './pages/Settings';
@@ -42,11 +40,6 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
-
-
-    {/* //cookie test
-     <button onClick={handleCookie}>set cookie</button>
-      <h2>cookie: {cookies.token}</h2> */}
     </>
   );
 }
