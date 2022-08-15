@@ -5,7 +5,7 @@ const LoginForm = ({ handleSwitchLogin, setPassword, setUsername, username,passw
 
 
     return (
-        <LoginForm_>                               
+        <Container>                               
             <InputCont>
                     <Img src={logo}/>
             </InputCont>
@@ -24,13 +24,13 @@ const LoginForm = ({ handleSwitchLogin, setPassword, setUsername, username,passw
             </SwitchLoginButton> */}
             <p>Don't have an account? <A onClick={handleSwitchLogin}>Sign up</A></p>
             </SwitchLoginCont>    
-        </LoginForm_>
+        </Container>
     )
 }
 
 export default LoginForm
 
-const LoginForm_ = styled.div`
+const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
