@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { checkToken } from "../utils";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import SearchUser from "./SearchUser";
-import DropdownIcon from "../components/DropdownIcon"
+import DropdownIcon from "./DropdownIcon"
 import 'react-dropdown/style.css';
 import NavbarIcon from "./NavbarIcon";
 import logo from "./images/logo.png"
 
-const Header = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay, input, setInput }) => {
+const NavBar = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay, input, setInput }) => {
 
     // check token on refresh
 
@@ -26,24 +26,15 @@ const Header = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay
         }
     }, [user])
 
-    // react drop down
-
-    const options = [
-        'home', 'two', 'three'
-      ];
-      const defaultOption = options[0];
-
     return (
         <>
-            <NavBar>
+            <Container>
                 <NavTitleCont>
-                    <Img src={logo}/>
+                    <Img src={logo} onClick={ () => navigate("/") }/>
                 </NavTitleCont>
-
                 <NavSearchCont>
                     <SearchUser user={user} setUserDisplay={setUserDisplay} userDisplay={userDisplay} input={input} setInput={setInput}/>      
                 </NavSearchCont>
-
                 <NavAllIconsCont>
                     <NavbarIcon image={require("./images/home.png")}/>
                     <NavbarIcon image={require("./images/messages.png")}/>
@@ -52,18 +43,15 @@ const Header = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay
                     <NavbarIcon image={require("./images/likes.png")}/>
                     <DropdownIcon setCookie={setCookie} setUser={setUser} navigate={navigate}/> 
                 </NavAllIconsCont> 
-
-            </NavBar>
-
+            </Container>
             <User>{user} logged in.</User>   
-
         </>
     )
 };
 
-export default Header;
+export default NavBar;
 
-const NavBar = styled.div`
+const Container = styled.div`
     width: 100vw;
     position: relative;
     box-shadow: 0px 0px 7px -2px;
@@ -81,6 +69,7 @@ const Img = styled.img`
     background-image: url(${logo});
     background-size: cover;
     margin-left: 1rem;
+    cursor: pointer;
 
 `
 const NavSearchCont = styled.div`

@@ -1,15 +1,7 @@
 import styled from "styled-components"
 import Modal from "react-modal"
 
-const LoginCorrectForm = ({openModal, setIsOpen, modalIsOpen}) => {
-
-    // modal funcs
-    // const showErrMsg = (err) => {
-    //     setErrMsg(err)
-    //     openModal()
-    //     console.log(err)
-    // }
-
+const LoginCorrectForm = ({ setIsOpen, modalIsOpen }) => {
   
     const closeModal = (e) => {
         e.preventDefault()
@@ -17,7 +9,6 @@ const LoginCorrectForm = ({openModal, setIsOpen, modalIsOpen}) => {
     }
 
     return (
-        <>
         <ModalCont>
             <Modal
                 isOpen={modalIsOpen}
@@ -26,17 +17,13 @@ const LoginCorrectForm = ({openModal, setIsOpen, modalIsOpen}) => {
                 contentLabel="Example Modal"
             >
                 <CloseModal onClick={closeModal}>X</CloseModal>
-                {/* <ErrorMessage>{errMsg}</ErrorMessage> */}
                 <ErrorMessage>Incorrect credentials.</ErrorMessage>
             </Modal>
         </ModalCont>
-        </>
     )
 }
 
 export default LoginCorrectForm
-
-    // Err Msg
 
     const customStyles = {
         content: {
@@ -51,7 +38,6 @@ export default LoginCorrectForm
     const ModalCont = styled.div`
         position: absolute;
     `
-
     const CloseModal = styled.div`
         position: absolute;
         right: 1rem;

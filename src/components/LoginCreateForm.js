@@ -1,9 +1,7 @@
 import styled from "styled-components"
 import logo from "./images/logo.png"
 
-const LoginCreateForm = ({handleSwitchLogin, setEmail, setPassword, setUsername, username, email, password, handleEnterCreate, handleClickCreate, createAccount}) => {
-
-
+const LoginCreateForm = ({ handleSwitchLogin, setEmail, setPassword, setUsername, username, email, password, handleEnterCreate, handleClickCreate }) => {
 
     return (
         <LoginForm_> 
@@ -31,14 +29,11 @@ const LoginCreateForm = ({handleSwitchLogin, setEmail, setPassword, setUsername,
 
 export default LoginCreateForm
 
-// Login
-
 const LoginForm_ = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* width: 320px; */
     background-color: white;
     padding-top: 2rem;
     box-shadow: 0px 0px 7px -2px;

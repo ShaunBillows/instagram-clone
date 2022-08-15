@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import logo from "./images/logo.png"
 
-const LoginForm = ({handleSwitchLogin, setPassword, setUsername, username,password, handleEnterLogin, handleClickLogin, createAccount}) => {
+const LoginForm = ({ handleSwitchLogin, setPassword, setUsername, username,password, handleEnterLogin, handleClickLogin }) => {
 
 
     return (
@@ -53,9 +53,6 @@ const InputCont = styled.div`
     display: flex;
     justify-content: center;
 `
-const Title =  styled.h1`
-    padding: 1rem 0;
-`
 const Input = styled.input`
     border-radius: 3px;
     background-color: rgba(1,1,1,0.05);
@@ -96,10 +93,6 @@ const Button = styled.button`
 const SwitchLoginCont = styled.div`
     text-align: center;
     margin-bottom: 2rem;
-`
-const SwitchLoginButton = styled.button`
-    padding: 0.1rem;
-    margin: 0.5rem;
 `
 const A = styled.a`
     color: #0276FF;

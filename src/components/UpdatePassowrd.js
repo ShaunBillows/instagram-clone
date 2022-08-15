@@ -2,7 +2,6 @@ import { changePassword } from "../utils"
 import { useState } from "react"
 import styled from "styled-components"
 
-
 const UpdatePassword = ({ cookies, setCookie, setUser }) => {
 
     // delete account 
@@ -48,6 +47,8 @@ const UpdatePassword = ({ cookies, setCookie, setUser }) => {
     )
 }
 
+export default UpdatePassword
+
 const DeleteAccountCont = styled.div`
     padding: 1rem;
     outline: solid black 1px;
@@ -56,5 +57,3 @@ const Input = styled.input`
 `
 const Button = styled.button`
 `
-
-export default UpdatePassword

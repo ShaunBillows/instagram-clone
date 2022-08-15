@@ -1,10 +1,16 @@
-import Header from "../components/Header"
-import { Navigate } from "react-router-dom"
+import NavBar from "../components/NavBar"
 
-const Profile = ({user, setUser, cookies, setCookieuserDisplay, setUserDisplay, setCookie, userDisplay}) => {
+const Profile = ({user, setUser, cookies, setUserDisplay, setCookie, userDisplay}) => {
     return (
         <>
-            <Header user={user} setUser={setUser} cookies={cookies} setCookie={setCookie} userDisplay={userDisplay} setUserDisplay={setUserDisplay}/>
+            <NavBar 
+                user={user} 
+                setUser={setUser} 
+                cookies={cookies} 
+                setCookie={setCookie}
+                userDisplay={userDisplay} 
+                setUserDisplay={setUserDisplay}
+            />
             <h1>{user} logged in.</h1>
         </>
     )

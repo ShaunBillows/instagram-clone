@@ -1,11 +1,9 @@
 import styled from "styled-components"
-import { useState } from "react"
-import Home from "../pages/Home"
 
-const NavbarIcon = ({image}) => {
+const NavbarIcon = ({ image }) => {
 
     const size = "27px"
-    // note to self: when using require with props => use require( "" + prop) or require(prop) in the parent instead
+    // Note: when using require with props; require( "" + prop) in child  or require(prop) in parent
 
     return (
        <NavIconCont size={size}>
@@ -13,6 +11,8 @@ const NavbarIcon = ({image}) => {
        </NavIconCont>
     )
 }
+
+export default NavbarIcon
 
 const NavIconCont = styled.div`
 height: ${(props) => props.size};
@@ -24,6 +24,3 @@ height: ${(props) => props.size};
 width: ${(props) => props.size};
 cursor: pointer;
 `
-
-export default NavbarIcon
-

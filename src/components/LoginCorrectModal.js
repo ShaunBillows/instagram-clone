@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const LoginCorrectForm = ({user}) => {
+const LoginCorrectForm = ({ user }) => {
 
     return (
         <SucessCont>
@@ -32,11 +32,9 @@ const SucessCont = styled.div`
     align-items: center;
 
 `
-
 const InputCont = styled.div`
     padding: 0.5rem;
 `
-
 const Button = styled.a`
 text-decoration: none;
   align-items: center;
