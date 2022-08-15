@@ -12,7 +12,6 @@ const UpdatePassword = ({ cookies, setCookie, setUser }) => {
 
     const handleEnterUpdate = async e => {
         if (e.key === "Enter") {
-            // await deleteUser(cookies, username, password, setCookie, setUser)
             const result = await changePassword(cookies, username, password, newPassword, setCookie, setUser)
             if (result) {
                 alert("Password changed.")
