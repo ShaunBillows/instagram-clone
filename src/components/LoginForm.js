@@ -22,7 +22,7 @@ const LoginForm = ({ handleSwitchLogin, setPassword, setUsername, username,passw
             {/* <SwitchLoginButton onClick={handleSwitchLogin}>
                 Login
             </SwitchLoginButton> */}
-            <p>Dont' have an account? <A onClick={handleSwitchLogin}>Sign up</A></p>
+            <p>Don't have an account? <A onClick={handleSwitchLogin}>Sign up</A></p>
             </SwitchLoginCont>    
         </LoginForm_>
     )
