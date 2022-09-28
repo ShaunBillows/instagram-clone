@@ -10,7 +10,8 @@ import { createGlobalStyle } from "styled-components"
 
 function App() {
 
-  const [ user, setUser ] = useState(); const [cookies, setCookie] = useCookies(["token"]);
+  const [ user, setUser ] = useState(); 
+  const [cookies, setCookie] = useCookies(["token"]);
   
   return (
     <BrowserRouter>

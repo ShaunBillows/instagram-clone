@@ -4,7 +4,7 @@ import logo from "./images/logo.png"
 const LoginCreateForm = ({ handleSwitchLogin, setEmail, setPassword, setUsername, username, email, password, handleEnterCreate, handleClickCreate }) => {
 
     return (
-        <LoginForm_> 
+        <LoginFormCont> 
             <InputCont>
                     <Img src={logo}/>
             </InputCont>
@@ -23,13 +23,13 @@ const LoginCreateForm = ({ handleSwitchLogin, setEmail, setPassword, setUsername
             <SwitchLoginCont>
             <p>Have an account? <A onClick={handleSwitchLogin}>Log in</A></p>
             </SwitchLoginCont>             
-        </LoginForm_>
+        </LoginFormCont>
     )
 }
 
 export default LoginCreateForm
 
-const LoginForm_ = styled.div`
+const LoginFormCont = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,9 +51,6 @@ const InputCont = styled.div`
     width: 320px;
     display: flex;
     justify-content: center;
-`
-const Title =  styled.h1`
-    padding: 1rem 0;
 `
 const Input = styled.input`
     border-radius: 3px;
@@ -95,10 +92,6 @@ const Button = styled.button`
 const SwitchLoginCont = styled.div`
     text-align: center;
     margin-bottom: 2rem;
-`
-const SwitchLoginButton = styled.button`
-    padding: 0.1rem;
-    margin: 0.5rem;
 `
 const A = styled.a`
     color: #0276FF;

@@ -36,6 +36,8 @@ const Home = ({ user, setUser, cookies, setCookie }) => {
             input={input} 
             setInput={setInput} 
             images={images}
+            cookies={cookies}
+            user={user}
           />
       </Container>
     )

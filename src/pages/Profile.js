@@ -11,7 +11,7 @@ const Profile = ({user, setUser, cookies, setUserDisplay, setCookie, userDisplay
                 userDisplay={userDisplay} 
                 setUserDisplay={setUserDisplay}
             />
-            <h1>{user} logged in.</h1>
+            <h1>{user && user.username} logged in.</h1>
         </>
     )
 }

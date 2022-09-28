@@ -45,7 +45,6 @@ export default DeleteAccount
 
 const DeleteAccountCont = styled.div`
     padding: 1rem;
-    outline: solid black 1px;
 `
 const Input = styled.input`
 `

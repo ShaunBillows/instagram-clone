@@ -1,13 +1,32 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import styled from "styled-components"
 import "./DisplayUserItem"
+import { addFriend } from "../utils";
 
-const DisplayUserItem = ({ user, firstName, lastName, status, image }) => {
+
+const DisplayUserItem = ({ username, firstName, lastName, status, image, cookies, user, input }) => {
 
     const [ isFriend, setIsFriend ] = useState(false)
 
-    const handleClick = () => {
-        setIsFriend( status => !status )
+    const handleClick = async () => {
+        await setIsFriend( status => !status )
+        await add(username, cookies)
+    }
+
+    const add = async (friend, cookies) => {
+        console.log(cookies);
+        await addFriend(friend, cookies)
+    }
+
+    useEffect( () => {
+        findFriends()
+            // eslint-disable-next-line
+    }, [input])
+
+    const findFriends = () => {
+        if (user.friends.some( x => x === username )) {
+            setIsFriend(true)
+        }
     }
 
     return (
@@ -19,7 +38,7 @@ const DisplayUserItem = ({ user, firstName, lastName, status, image }) => {
                     <Img image={image}></Img>
                 </ImgCont>
                 <InfoCont>
-                    <UserInfo><Title>{user}</Title></UserInfo>
+                    <UserInfo><Title>{username}</Title></UserInfo>
                     <UserInfo><Text>{firstName} {lastName}</Text></UserInfo>
                     <UserInfo><Text>{status}</Text></UserInfo>
                 </InfoCont>

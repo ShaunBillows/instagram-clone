@@ -6,7 +6,11 @@ export const changeToken = (setCookie, token) => {
 }
 
 export const getImages = async (setImages) => {
-  const response = await fetch("https://picsum.photos/v2/list")
-  const data = await response.json()
-  setImages( data.map( x => x.download_url) )
+  try {
+    const response = await fetch("https://picsum.photos/v2/list")
+    const data = await response.json()
+    setImages( data.map( x => x.download_url) )
+  } catch (error) {
+    console.log(error);
+  }
 }

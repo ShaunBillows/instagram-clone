@@ -2,7 +2,7 @@ import styled from "styled-components"
 import DisplayUserItem from "./DisplayUserItem"
 let faker = require('faker');
 
-const DisplayUser = ({ userDisplay, input, images }) => {
+const DisplayUser = ({ userDisplay, input, images, cookies, user }) => {
 
     return (
         <>
@@ -12,8 +12,8 @@ const DisplayUser = ({ userDisplay, input, images }) => {
                 ?
                 <UserCont>
                     <UserList>
-                        {userDisplay.map((user, i) => (
-                            <DisplayUserItem key={i} user={user} firstName={faker.name.firstName()} lastName={faker.name.lastName()} status={faker.name.jobType()} image={images[i]}/>
+                        {userDisplay.map((x, i) => (
+                            <DisplayUserItem key={i} username={x} firstName={faker.name.firstName()} lastName={faker.name.lastName()} status={faker.name.jobType()} image={images[i]} cookies={cookies} user={user} input={input} />
                         ))}
                     </UserList>
                 </UserCont>  
@@ -21,7 +21,7 @@ const DisplayUser = ({ userDisplay, input, images }) => {
                 <UserCont>
                     <UserList>
                         {images.map((x, i) => (
-                            <DisplayUserItem key={i} user={faker.name.firstName()} firstName={faker.name.firstName()} lastName={faker.name.lastName()} status={faker.name.jobType()} image={images[i]}/>
+                            <DisplayUserItem key={i} username={faker.name.firstName()} firstName={faker.name.firstName()} lastName={faker.name.lastName()} status={faker.name.jobType()} image={images[i]} cookies={cookies} user={user} input={input} />
                         ))}
                     </UserList>
                 </UserCont>  

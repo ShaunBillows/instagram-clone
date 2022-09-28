@@ -14,6 +14,7 @@ const NavBar = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay
 
     useEffect( () => {
         checkToken(cookies, setCookie, setUser)
+    // eslint-disable-next-line
     }, [] )
 
     // navigate to login page if logout detected
@@ -24,6 +25,7 @@ const NavBar = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay
         if (user === "") {
             navigate("/")
         }
+    // eslint-disable-next-line
     }, [user])
 
     return (
@@ -44,7 +46,7 @@ const NavBar = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay
                     <DropdownIcon setCookie={setCookie} setUser={setUser} navigate={navigate}/> 
                 </NavAllIconsCont> 
             </Container>
-            <User>{user} logged in.</User>   
+            <User>{user && user.username} logged in.</User> 
         </>
     )
 };
