@@ -27,7 +27,6 @@ const SearchUser = ({userDisplay, setUserDisplay, input, setInput}) => {
 
     const getUsers = async () => {
         await readUsers(input, setUserDisplay)
-        console.log(userDisplay);
     }
 
     return (
@@ -44,6 +43,9 @@ const SearchUser = ({userDisplay, setUserDisplay, input, setInput}) => {
 export default SearchUser
 
 const SearchUserContainer = styled.div`
+    @media (max-width: 900px) {
+        display: none;
+    }
 `
 const SearchCont = styled.div`
     margin: 1.2rem;
@@ -72,6 +74,7 @@ const SearchIcon = styled.div`
     background-image: url(${searchLogo});
     background-size: cover;
     cursor: text;
+
 `
 const Clear = styled.div`
     position: absolute;

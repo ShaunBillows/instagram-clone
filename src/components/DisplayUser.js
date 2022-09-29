@@ -41,6 +41,7 @@ const TextCont = styled.div`
 const UserCont = styled.div`
         width: ${width};
         box-shadow: 0px 0px 7px -2px;
+        margin-bottom: 2rem;
 `
 const UserList = styled.ul`
 margin-top: 1rem;

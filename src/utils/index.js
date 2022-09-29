@@ -144,7 +144,7 @@ export const deleteUser = async (
         password: password,
       }),
     });
-    // const data = await response.json();
+    console.log(response.status);
     if (response.status === 200) {
       logout(setCookie, setUser);
       console.log("user deleted");

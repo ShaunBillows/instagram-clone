@@ -13,11 +13,11 @@ const DropdownIcon = ({ setCookie, setUser }) => {
           <DropdownArrow size={size}></DropdownArrow>
           <div className="dropdown-menu">
           <ul>
-          <li onClick={() => navigate("/profile")}>Profile</li>
-            <li>Saved</li>
-            <li onClick={() => navigate("/settings")}>Settings</li>
-            <li>Switch Accounts</li>
-            <li  onClick={() => logout( setCookie, setUser )}>Log out</li>
+          <ListItem onClick={() => navigate("/profile")}>Profile</ListItem>
+            <ListItem>Saved</ListItem>
+            <ListItem onClick={() => navigate("/settings")}>Settings</ListItem>
+            <ListItem>Switch Accounts</ListItem>
+            <ListItem  onClick={() => logout( setCookie, setUser )}>Log out</ListItem>
           </ul>
         </div>
       </div>
@@ -41,11 +41,14 @@ const NavIconCont = styled.div`
 const DropdownArrow = styled.div`
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 10px solid #333;
+    /* border-top: 10px solid #333; */
     position: relative;
     top: 45px;
-    left: 350px;
+    /* left: 350px; */
     background-size: cover;
     width: 27px;
     height: 27px;
+
+`
+const ListItem = styled.li`
 `

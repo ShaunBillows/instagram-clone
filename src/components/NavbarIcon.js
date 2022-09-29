@@ -7,7 +7,7 @@ const NavbarIcon = ({ image }) => {
 
     return (
        <NavIconCont size={size}>
-            <Img size={size} src={image} />
+            <Img size={size} src={image}/>
        </NavIconCont>
     )
 }
@@ -17,6 +17,15 @@ export default NavbarIcon
 const NavIconCont = styled.div`
 height: ${(props) => props.size};
 width: ${(props) => props.size};
+height: 35px;
+width: 35px;
+display: flex;
+justify-content: center;
+align-items: center;
+&:active{
+        background-color: red;
+        z-index: 10;
+    }
 `
 
 const Img = styled.img`

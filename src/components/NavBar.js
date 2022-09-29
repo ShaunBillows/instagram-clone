@@ -7,8 +7,13 @@ import DropdownIcon from "./DropdownIcon"
 import 'react-dropdown/style.css';
 import NavbarIcon from "./NavbarIcon";
 import logo from "./images/logo.png"
+import home from "./images/home.png"
+import messages from "./images/messages.png"
+import discover from "./images/discover.png"
+import likes from "./images/likes.png"
+import post from "./images/post.png"
 
-const NavBar = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay, input, setInput }) => {
+const NavBar = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay, input, setInput, unavailable }) => {
 
     // check token on refresh
 
@@ -38,15 +43,14 @@ const NavBar = ({ user, setUser, cookies, setCookie, setUserDisplay, userDisplay
                     <SearchUser user={user} setUserDisplay={setUserDisplay} userDisplay={userDisplay} input={input} setInput={setInput}/>      
                 </NavSearchCont>
                 <NavAllIconsCont>
-                    <NavbarIcon image={require("./images/home.png")}/>
-                    <NavbarIcon image={require("./images/messages.png")}/>
-                    <NavbarIcon image={require("./images/post.png")}/>
-                    <NavbarIcon image={require("./images/discover.png")}/>
-                    <NavbarIcon image={require("./images/likes.png")}/>
+                    <NavbarIcon image={home} className="unavailable"/>
+                    <NavbarIcon image={messages} className="unavailable"/>
+                    <NavbarIcon image={post}/>
+                    <NavbarIcon image={discover}/>
+                    <NavbarIcon image={likes}/>
                     <DropdownIcon setCookie={setCookie} setUser={setUser} navigate={navigate}/> 
                 </NavAllIconsCont> 
             </Container>
-            <User>{user && user.username} logged in.</User> 
         </>
     )
 };
@@ -57,6 +61,7 @@ const Container = styled.div`
     width: 100vw;
     position: relative;
     box-shadow: 0px 0px 7px -2px;
+    height: 71px;
 `
 const NavTitleCont = styled.div`
     position: absolute;
@@ -86,10 +91,9 @@ const NavAllIconsCont = styled.div`
     top: 0;
     display: flex;
     align-items: center;
-    gap: 1.4rem;
+    gap: 1.1rem;
     margin-right: 1rem;
-`
-const User = styled.h5`
-    padding: 0.3rem;
-    align-self: flex-end;
+    @media (max-width: 900px) {
+        gap: 0.2rem;
+    }
 `

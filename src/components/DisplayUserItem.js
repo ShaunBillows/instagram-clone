@@ -7,6 +7,7 @@ import { addFriend } from "../utils";
 const DisplayUserItem = ({ username, firstName, lastName, status, image, cookies, user, input }) => {
 
     const [ isFriend, setIsFriend ] = useState(false)
+    // const [ friends, setFriends ] = useState([])
 
     const handleClick = async () => {
         await setIsFriend( status => !status )
@@ -14,20 +15,60 @@ const DisplayUserItem = ({ username, firstName, lastName, status, image, cookies
     }
 
     const add = async (friend, cookies) => {
-        console.log(cookies);
         await addFriend(friend, cookies)
+        // refresh()
+        // const oldFriends = friends
+        // setFriends( [...friends, friend ])
+        // if (friends.some( x => x === friend )) {
+        //     setFriends( oldFriends.filter( x => x !== friend ) )
+        // } else {
+        //     setFriends( oldFriends.push(friend) )
+        // }
     }
 
+    // const refresh = () => {
+    //     window.location.reload();
+    // }
+
+    useEffect( () => {
+        findFriends()
+            // eslint-disable-next-line
+    }, [])
     useEffect( () => {
         findFriends()
             // eslint-disable-next-line
     }, [input])
 
     const findFriends = () => {
-        if (user.friends.some( x => x === username )) {
-            setIsFriend(true)
+        if (user) {
+            if (user.friends.some( x => x.toLowerCase() === username.toLowerCase() )) {
+                setIsFriend(true)
+            }
         }
     }
+
+    // useEffect( () => {
+    //     if (friends.some( x => x.toLowerCase() === username.toLowerCase() )) {
+    //         setIsFriend(true)
+    //     }
+    //         // eslint-disable-next-line
+    // }, [input])
+
+    // useEffect( () => {
+    //     getFriends()
+    //         // eslint-disable-next-line
+    // }, [user])
+
+    // useEffect( () => {
+    //     getFriends()
+    //         // eslint-disable-next-line
+    // }, [])
+
+    // const getFriends = () => {
+    //     if (user) {
+    //         setFriends(user.friends)
+    //     }
+    // }
 
     return (
 
